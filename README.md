@@ -98,32 +98,60 @@ Uzupełniaj sekcje w zadaniach podanych w nawiasach. Zastępuj teksty w nawiasac
 
 ## Informacje ogólne
 
-* Tytuł: [tytuł projektu]
-* Autor: [imię i nazwisko]
-* Modalność: [tekst, obraz, audio albo dane multimodalne]
-* Problem klasyfikacji: [co jest klasą, ile jest klas]
+* Tytuł: Klasyfikacja kategorii produktów na podstawie ich nazw z wykorzystaniem klasycznych i pretrained metod reprezentacji tekstu.
+* Autor: Sandra Świderek
+* Modalność: Tekst
+* Problem klasyfikacji: Klasyfikacja jednolabelowa do jednej z 10 kategorii produktów na podstawie pola `Product Title`.
 
 ## Problem i pytanie eksperymentalne (Zadanie 1)
 
-[Jaki problem rozwiązujesz i co dokładnie chcesz sprawdzić.]
+Celem projektu jest przypisanie ofert produktów do odpowiednich kategorii na podstawie ich nazw. Każda oferta ma jedną etykietę zapisaną w kolumnie `Category Label`.
+Pytanie eksperymentalne: Czy reprezentacja tekstu uzyskana za pomocą pretrained modelu `sentence-transformers/all-MiniLM-L6-v2` pozwoli osiągnąć lepszy wynik macro-F1 niż klasyczne podejście TF-IDF?
 
 ## Dane i licencja (Zadanie 1)
 
-[Źródło i link, licencja, sposób pobrania, liczba przykładów, lista klas, sposób oznaczenia etykiet, znane ograniczenia.]
+Celem projektu jest przypisanie ofert produktów do odpowiednich kategorii na podstawie ich nazw. Każda oferta ma jedną etykietę zapisaną w kolumnie `Category Label`.
+
+Pytanie eksperymentalne: Czy reprezentacja tekstu uzyskana za pomocą pretrained modelu `sentence-transformers/all-MiniLM-L6-v2` pozwoli osiągnąć lepszy wynik macro-F1 niż klasyczne podejście TF-IDF?
+
+W obu podejściach planowane jest wykorzystanie Logistic Regression jako klasyfikatora.
+
+## Dane i licencja (Zadanie 1)
+
+Źródło: UCI Machine Learning Repository – Product Classification and Clustering.
+
+https://archive.ics.uci.edu/dataset/837/product%2Bclassification%2Band%2Bclustering
+
+Licencja: CC BY 4.0.
+
+Zbiór pochodzi z PriceRunner i zawiera 35 311 ofert produktów od 306 sprzedawców. Oferty należą do 13 233 unikalnych produktów (`Cluster ID`).
+
+Kategorie: CPUs, Digital Cameras, Dishwashers, Fridge Freezers, Freezers, Fridges, Microwaves, Mobile Phones, TVs i Washing Machines.
+
+Etykiety są dostępne w kolumnie `Category Label`. Do klasyfikacji wykorzystywane będą wyłącznie tytuły z kolumny `Product Title`.
+
+Audyt danych wykazał:
+* Brak brakujących wartości.
+* Brak całkowicie zduplikowanych wierszy.
+* 4 318 powtórzeń tytułów produktów.
+* 617 tytułów występujących w różnych klastrach.
+* Dwa identyczne tytuły z różnymi etykietami kategorii.
+* Średnia długość tytułu wynosi około 53 znaki i 8,7 słowa.
+* Najliczniejsza klasa to Fridge Freezers (5 501 ofert), a najmniej liczna to Freezers (2 212 ofert).
 
 ## Protokół (Zadanie 1)
 
-* Jednostka generalizacji: [na przykład recenzja, pacjent, mówca, nagranie źródłowe]
-* Podział: [metoda i uzasadnienie]
-* Metryka główna i pomocnicze: [z uzasadnieniem]
-* Seed: [wartość]
+* Jednostka generalizacji: Unikalny produkt określony przez `Cluster ID`. Jeden produkt może mieć kilka ofert od różnych sprzedawców. Model powinien poprawnie klasyfikować produkty, których nie było w zbiorze treningowym.
+* Podział: Około 80% train, 10% validation i 10% final test. Zastosowano `StratifiedGroupKFold` z `random_state=42`. Wszystkie oferty tego samego produktu pozostają w jednym zbiorze. Dodatkowo połączono grupy z identycznymi tytułami, aby ograniczyć wyciek danych. Sprawdzono, że zbiory nie mają wspólnych `Cluster ID` ani identycznych tytułów.
+* Metryka główna i pomocnicze: Główna metryka to macro-F1, ponieważ klasy mają różne liczebności i każda powinna mieć jednakowy wpływ na ocenę. Metryki pomocnicze to accuracy, weighted-F1 i F1 dla poszczególnych klas.
+* Seed: 42. Podział został wykonany z ustalonym `random_state=42`. Jego identyfikatory zapisano w plikach CSV, aby był taki sam we wszystkich kolejnych eksperymentach.
 * Final test: zamrożony w commicie z tagiem `task-1`, identyfikatory w `splits/`. Jeśli podział był później poprawiany, podaj commit poprawionej wersji i opisz zmianę w dzienniku zmian.
 
 | Zbiór | Liczba przykładów | Liczba niezależnych jednostek |
 |---|---|---|
-| train | | |
-| validation | | |
-| final test | | |
+| train | 28 338 | 10 691 |
+| validation | 3 479 | 1 276 |
+| final test | 3 494 | 1 266 |
 
 ## Wyniki (Zadania 2 do 5)
 
