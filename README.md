@@ -108,6 +108,8 @@ Uzupełniaj sekcje w zadaniach podanych w nawiasach. Zastępuj teksty w nawiasac
 Celem projektu jest przypisanie ofert produktów do odpowiednich kategorii na podstawie ich nazw. Każda oferta ma jedną etykietę zapisaną w kolumnie `Category Label`.
 Pytanie eksperymentalne: Czy reprezentacja tekstu uzyskana za pomocą pretrained modelu `sentence-transformers/all-MiniLM-L6-v2` pozwoli osiągnąć lepszy wynik macro-F1 niż klasyczne podejście TF-IDF?
 
+Porównane zostaną dwa podejścia: TF-IDF + Logistic Regression oraz embeddingi z zamrożonego modelu `sentence-transformers/all-MiniLM-L6-v2` + Logistic Regression.
+
 ## Dane i licencja (Zadanie 1)
 
 Źródło: UCI Machine Learning Repository – Product Classification and Clustering.
@@ -115,6 +117,7 @@ Pytanie eksperymentalne: Czy reprezentacja tekstu uzyskana za pomocą pretrained
 https://archive.ics.uci.edu/dataset/837/product%2Bclassification%2Band%2Bclustering
 
 Licencja: CC BY 4.0.
+Autor zbioru: Leonidas Akritidis.
 
 Zbiór pochodzi z PriceRunner i zawiera 35 311 ofert produktów od 306 sprzedawców. Oferty należą do 13 233 unikalnych produktów (`Cluster ID`).
 
@@ -177,6 +180,8 @@ Po zainstalowaniu bibliotek z `requirements.txt` należy otworzyć `notebooks/01
 
 Notebook wykonuje audyt danych i zapisuje trzy pliki z identyfikatorami do folderu `splits/`.
 
+Środowisko: Python 3.14.2. Wersje bibliotek użytych w Zadaniu 1 zapisano w `requirements.txt`. Do uruchomienia notebooka potrzebne jest środowisko Jupyter z kernelem Pythona.
+
 ## Ograniczenia
 
 Zbiór zawiera wyłącznie 10 kategorii produktów z platformy PriceRunner. Tytuły zostały wcześniej przetworzone przez autorów zbioru (m.in. zamiana liter na małe i usunięcie części interpunkcji).
@@ -186,8 +191,12 @@ Dwa identyczne tytuły mają różne etykiety kategorii. W danych występują te
 ## Dziennik zmian
 
 | Data | Zadanie | Co zmieniono i dlaczego |
+|---|---|---|
 | 2026-11-04 | 1 | Audyt danych, przygotowanie podziału grupowego i dodatkowa kontrola podobnych tytułów. |
 
 ## Licencja projektu
 
-[Na przykład MIT. Dane używane zgodnie z licencją opisaną w sekcji „Dane i licencja”.]
+Kod projektu nie jest udostępniany na osobnej licencji.
+
+Wykorzystany zbiór danych „Product Classification and Clustering” jest dostępny na licencji CC BY 4.0.
+Źródło i autor zbioru są podani w sekcji „Dane i licencja”.
