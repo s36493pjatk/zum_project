@@ -133,17 +133,17 @@ Audyt danych wykazał:
 
 ## Protokół (Zadanie 1)
 
-* Jednostka generalizacji: Unikalny produkt określony przez `Cluster ID`. Jeden produkt może mieć kilka ofert od różnych sprzedawców. Model powinien poprawnie klasyfikować produkty, których nie było w zbiorze treningowym.
-* Podział: Około 80% train, 10% validation i 10% final test. Zastosowano `StratifiedGroupKFold` z `random_state=42`. Wszystkie oferty tego samego produktu pozostają w jednym zbiorze. Dodatkowo połączono grupy z identycznymi tytułami, aby ograniczyć wyciek danych. Sprawdzono, że zbiory nie mają wspólnych `Cluster ID` ani identycznych tytułów.
-* Metryka główna i pomocnicze: Główna metryka to macro-F1, ponieważ klasy mają różne liczebności i każda powinna mieć jednakowy wpływ na ocenę. Metryki pomocnicze to accuracy, weighted-F1 i F1 dla poszczególnych klas.
-* Seed: 42. Podział został wykonany z ustalonym `random_state=42`. Jego identyfikatory zapisano w plikach CSV, aby był taki sam we wszystkich kolejnych eksperymentach.
-* Final test: zamrożony w commicie z tagiem `task-1`, identyfikatory w `splits/`. Jeśli podział był później poprawiany, podaj commit poprawionej wersji i opisz zmianę w dzienniku zmian.
+* Jednostka generalizacji: Unikalny produkt określony przez `Cluster ID`. Jeden produkt może mieć wiele ofert od różnych sprzedawców. Model ma poprawnie klasyfikować nowe produkty, których nie było w danych treningowych. Zgodnie z uwagą prowadzącej zastosowano podział grupowy zamiast losowego podziału pojedynczych ofert.
+* Podział: Około 80% train, 10% validation i 10% final test. Zastosowano `StratifiedGroupKFold` z 10 podziałami, `shuffle=True` i `random_state=42`. Fold 1 przeznaczono na validation, fold 2 na final test, a pozostałe na train (indeksy foldów w kodzie: 1 i 2). Grupy utworzono na podstawie `Cluster ID`, łącząc dodatkowo klastry ze znormalizowanymi, identycznymi tytułami. Sprawdzono brak wspólnych `Cluster ID` i znormalizowanych tytułów pomiędzy zbiorami. Rozkład klas pozostał zbliżony, choć nie jest idealnie równy ze względu na grupowanie.
+* Metryka główna i pomocnicze: Główna metryka to macro-F1, ponieważ klasy mają różne liczebności i każda ma mieć jednakowy wpływ na ocenę. Metryki pomocnicze to accuracy, weighted-F1 oraz F1 dla poszczególnych klas.
+* Seed: 42. Ten sam seed będzie stosowany w eksperymentach, gdy dana metoda wykorzystuje losowość. Identyfikatory podziału zapisano w plikach CSV, aby nie wykonywać ponownego losowania w kolejnych zadaniach.
+* Final test: Identyfikatory final test zapisano w `splits/test_ids.csv`. Podział zostanie zamrożony w commicie oznaczonym tagiem `task-1`. Do końca Zadania 4 final test nie będzie wykorzystywany do trenowania, strojenia ani wyboru modeli.
 
-| Zbiór | Liczba przykładów | Liczba niezależnych jednostek |
-|---|---|---|
-| train | 28 338 | 10 691 |
-| validation | 3 479 | 1 276 |
-| final test | 3 494 | 1 266 |
+| Zbiór | Liczba przykładów | Liczba niezależnych jednostek (`Cluster ID`) |
+|---|---:|---:|
+| train | 28 338 | 10 684 |
+| validation | 3 479 | 1 282 |
+| final test | 3 494 | 1 267 |
 
 ## Wyniki (Zadania 2 do 5)
 
