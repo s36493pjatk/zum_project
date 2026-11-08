@@ -168,17 +168,25 @@ Pełny zapis jest w `final_system.md`. [Krótkie uzasadnienie wyboru na podstawi
 
 ## Reprodukcja
 
-[Wersja Pythona, instalacja środowiska, pobranie danych, kolejność uruchamiania notebooków albo skryptów, sprzęt, przybliżony czas.]
+Dane pobrano z UCI Machine Learning Repository:
+https://archive.ics.uci.edu/dataset/837/product%2Bclassification%2Band%2Bclustering
+
+Archiwum `product+classification+and+clustering.zip` należy umieścić lokalnie w folderze `data/` lub `data/sample/`. Pełny zbiór danych nie jest przechowywany w repozytorium.
+
+Po zainstalowaniu bibliotek z `requirements.txt` należy otworzyć `notebooks/01_data_and_protocol.ipynb` i uruchomić wszystkie komórki po kolei.
+
+Notebook wykonuje audyt danych i zapisuje trzy pliki z identyfikatorami do folderu `splits/`.
 
 ## Ograniczenia
 
-[Ograniczenia danych, protokołu i wyników. Czego wynik nie dowodzi.]
+Zbiór zawiera wyłącznie 10 kategorii produktów z platformy PriceRunner. Tytuły zostały wcześniej przetworzone przez autorów zbioru (m.in. zamiana liter na małe i usunięcie części interpunkcji).
+
+Dwa identyczne tytuły mają różne etykiety kategorii. W danych występują też bardzo podobne nazwy produktów, dlatego pomimo podziału grupowego nie można całkowicie wykluczyć podobieństwa między zbiorami.
 
 ## Dziennik zmian
 
 | Data | Zadanie | Co zmieniono i dlaczego |
-|---|---|---|
-| | | |
+| 2026-11-04 | 1 | Audyt danych, przygotowanie podziału grupowego i dodatkowa kontrola podobnych tytułów. |
 
 ## Licencja projektu
 
