@@ -110,14 +110,6 @@ Pytanie eksperymentalne: Czy reprezentacja tekstu uzyskana za pomocą pretrained
 
 ## Dane i licencja (Zadanie 1)
 
-Celem projektu jest przypisanie ofert produktów do odpowiednich kategorii na podstawie ich nazw. Każda oferta ma jedną etykietę zapisaną w kolumnie `Category Label`.
-
-Pytanie eksperymentalne: Czy reprezentacja tekstu uzyskana za pomocą pretrained modelu `sentence-transformers/all-MiniLM-L6-v2` pozwoli osiągnąć lepszy wynik macro-F1 niż klasyczne podejście TF-IDF?
-
-W obu podejściach planowane jest wykorzystanie Logistic Regression jako klasyfikatora.
-
-## Dane i licencja (Zadanie 1)
-
 Źródło: UCI Machine Learning Repository – Product Classification and Clustering.
 
 https://archive.ics.uci.edu/dataset/837/product%2Bclassification%2Band%2Bclustering
