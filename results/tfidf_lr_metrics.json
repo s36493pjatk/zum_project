@@ -1,0 +1,13 @@
+{
+  "split": "validation",
+  "seed": 42,
+  "metrics": {
+    "macro_f1": 0.9626969147204905,
+    "accuracy": 0.962345501580914,
+    "weighted_f1": 0.9622702952067648
+  },
+  "training_seconds": 1.1664,
+  "hardware": "CPU, Darwin arm64",
+  "python": "3.14.2",
+  "scikit_learn": "1.8.0"
+}
