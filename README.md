@@ -193,6 +193,7 @@ Dwa identyczne tytuły mają różne etykiety kategorii. W danych występują te
 | Data | Zadanie | Co zmieniono i dlaczego |
 |---|---|---|
 | 2026-11-04 | 1 | Audyt danych, przygotowanie podziału grupowego i dodatkowa kontrola podobnych tytułów. |
+| 2026-11-12 | 2 | Uruchomiono DummyClassifier i TF-IDF + Logistic Regression, zapisano metryki na validation oraz przeanalizowano błędy. |
 
 ## Licencja projektu
 
