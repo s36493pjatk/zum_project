@@ -1,0 +1,10 @@
+przypadek,id,title,true_label,tfidf_pred,minilm_pred
+"MiniLM poprawny, TF-IDF błędny",21626,x100f black,Digital Cameras,Mobile Phones,Digital Cameras
+"MiniLM poprawny, TF-IDF błędny",22805,kidizoom selfie cam ideal gift for all celebrations,Digital Cameras,Mobile Phones,Digital Cameras
+"MiniLM poprawny, TF-IDF błędny",24101,panasonic nne27jwmbpq/nne27jwmbpq,Microwaves,Digital Cameras,Microwaves
+"TF-IDF poprawny, MiniLM błędny",1396,alcatel 5099d 2balwe2 15 24 cm 6 zoll 3v,Mobile Phones,Mobile Phones,TVs
+"TF-IDF poprawny, MiniLM błędny",1836,cubot r11 5 5 zoll hd 18 9 verh ltnis,Mobile Phones,Mobile Phones,Fridges
+"TF-IDF poprawny, MiniLM błędny",2629,swisstone bbm 625,Mobile Phones,Mobile Phones,Microwaves
+Oba modele błędne,13010,xoro xor400494 htc 1946 black,TVs,Mobile Phones,Mobile Phones
+Oba modele błędne,13058,parrot ar drone 2.0 elite edition quadricopter jungle,TVs,Mobile Phones,Mobile Phones
+Oba modele błędne,13059,parrot ar drone 2.0 elite edition quadricopter jungle,TVs,Mobile Phones,Mobile Phones

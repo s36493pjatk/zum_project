@@ -1,0 +1,28 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "split": "validation",
+  "seed": 42,
+  "metrics": {
+    "macro_f1": 0.9694594940282248,
+    "accuracy": 0.9695314745616557,
+    "weighted_f1": 0.9695224333574254
+  },
+  "times": {
+    "model_load_seconds": 19.887,
+    "embedding_train_seconds": 18.353,
+    "embedding_validation_seconds": 2.207,
+    "classifier_fit_seconds": 0.474,
+    "prediction_seconds": 0.001
+  },
+  "peak_process_ram_mb": 883.2,
+  "hardware": "cpu, Darwin arm64",
+  "python": "3.14.2",
+  "torch": "2.15.0",
+  "sentence_transformers": "6.3.0",
+  "scikit_learn": "1.8.0",
+  "embedding_dim": 384,
+  "max_seq_length": 256,
+  "titles_over_limit_train": 0,
+  "titles_over_limit_validation": 0
+}
