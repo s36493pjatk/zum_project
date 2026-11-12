@@ -6,3 +6,5 @@ numpy==2.4.0
 pandas==2.3.3
 scikit-learn==1.8.0
 matplotlib==3.10.8
+torch==2.15.0
+sentence-transformers==6.3.0
