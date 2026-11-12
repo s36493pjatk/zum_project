@@ -154,8 +154,8 @@ Wyniki na validation:
 
 | Podejście | Zadanie | Metryka główna | Metryki pomocnicze | Czas i sprzęt | Uwagi |
 |---|---|---|---|---|---|
-| Trivial baseline | 2 | | | | |
-| Baseline | 2 | | | | |
+| DummyClassifier (most_frequent) | 2 | macro-F1: 0.0273 | accuracy: 0.1581; weighted-F1: 0.0432 | 0.0111 s; CPU, Darwin arm64 | Zawsze przewiduje Fridge Freezers |
+| TF-IDF + Logistic Regression | 2 | macro-F1: 0.9627 | accuracy: 0.9623; weighted-F1: 0.9623 | 1.1664 s; CPU, Darwin arm64 | TF-IDF 1–2 gramy, 131 błędów na validation |
 | Podejście pretrained | 3 | | | | |
 | Rozszerzenie | 4 | | | | |
 
