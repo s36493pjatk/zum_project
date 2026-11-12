@@ -156,7 +156,7 @@ Wyniki na validation:
 |---|---|---|---|---|---|
 | DummyClassifier (most_frequent) | 2 | macro-F1: 0.0273 | accuracy: 0.1581; weighted-F1: 0.0432 | 0.0111 s; CPU, Darwin arm64 | Zawsze przewiduje Fridge Freezers |
 | TF-IDF + Logistic Regression | 2 | macro-F1: 0.9627 | accuracy: 0.9623; weighted-F1: 0.9623 | 1.1664 s; CPU, Darwin arm64 | TF-IDF 1–2 gramy, 131 błędów na validation |
-| Podejście pretrained | 3 | | | | |
+| MiniLM + Logistic Regression | 3 | macro-F1: 0.9695 | accuracy: 0.9695; weighted-F1: 0.9695 | CPU, Darwin arm64; embeddingi train: 18.35 s, validation: 2.21 s; trening LR: 0.47 s | Zamrożony encoder, 106 błędów na validation |
 | Rozszerzenie | 4 | | | | |
 
 Wynik na final test, wyłącznie dla finalnego systemu i dopiero po utworzeniu tagu `final-freeze`:
@@ -182,6 +182,8 @@ Zadanie 1: Notebook notebooks/01_data_and_protocol.ipynb wykonuje audyt danych i
 
 Zadanie 2: Notebook notebooks/02_baseline.ipynb korzysta z podziału przygotowanego w Zadaniu 1. Trenuje modele DummyClassifier oraz TF-IDF + Logistic Regression, oblicza metryki na validation i zapisuje wyniki w results/validation/.
 
+Zadanie 3: Notebook `notebooks/03_pretrained.ipynb` wykorzystuje zamrożony model MiniLM i klasyfikator Logistic Regression. Korzysta z tych samych splitów co poprzednie eksperymenty. Wyniki porównania zapisuje w `results/validation/`.
+
 ## Ograniczenia
 
 Zbiór zawiera wyłącznie 10 kategorii produktów z platformy PriceRunner. Tytuły zostały wcześniej przetworzone przez autorów zbioru (m.in. zamiana liter na małe i usunięcie części interpunkcji).
@@ -194,6 +196,7 @@ Dwa identyczne tytuły mają różne etykiety kategorii. W danych występują te
 |---|---|---|
 | 2026-11-04 | 1 | Audyt danych, przygotowanie podziału grupowego i dodatkowa kontrola podobnych tytułów. |
 | 2026-11-12 | 2 | Uruchomiono DummyClassifier i TF-IDF + Logistic Regression, zapisano metryki na validation oraz przeanalizowano błędy. |
+| 2026-11-12 | 3 | Porównano MiniLM + Logistic Regression z baseline TF-IDF, zapisano wyniki i przeanalizowano różnice w predykcjach. |
 
 ## Licencja projektu
 
