@@ -159,6 +159,11 @@ Wyniki na validation:
 | MiniLM + Logistic Regression | 3 | macro-F1: 0.9695 | accuracy: 0.9695; weighted-F1: 0.9695 | CPU, Darwin arm64; embeddingi train: 18.35 s, validation: 2.21 s; trening LR: 0.47 s | Zamrożony encoder, 106 błędów na validation |
 | Rozszerzenie | 4 | | | | |
 
+**Model pretrained:** Wykorzystano `sentence-transformers/all-MiniLM-L6-v2` (rewizja `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`). Jest to encoder Transformer z 6 warstwami, zbudowany na bazie wcześniej trenowanego MiniLM. Do uczenia reprezentacji zdań zastosowano metodę kontrastową na ponad miliardzie par tekstów, m.in. z Reddit i S2ORC.
+Model tworzy embeddingi o 384 wymiarach za pomocą mean pooling. W eksperymencie embeddingi są normalizowane, encoder pozostaje zamrożony, a Logistic Regression jest trenowana wyłącznie na train.
+Licencja wag: Apache 2.0. Limit wejścia: 256 tokenów. Żaden tytuł z train ani validation nie przekroczył tego limitu.
+Źródło: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+
 Wynik na final test, wyłącznie dla finalnego systemu i dopiero po utworzeniu tagu `final-freeze`:
 
 | System | Metryka główna | Metryki pomocnicze |
