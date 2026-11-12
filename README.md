@@ -176,11 +176,11 @@ https://archive.ics.uci.edu/dataset/837/product%2Bclassification%2Band%2Bcluster
 
 Archiwum `product+classification+and+clustering.zip` należy umieścić lokalnie w folderze `data/` lub `data/sample/`. Pełny zbiór danych nie jest przechowywany w repozytorium.
 
-Po zainstalowaniu bibliotek z `requirements.txt` należy otworzyć `notebooks/01_data_and_protocol.ipynb` i uruchomić wszystkie komórki po kolei.
+Do uruchomienia projektu potrzebne jest środowisko Python 3.14.2 oraz biblioteki z requirements.txt. Notebooki można uruchamiać w VS Code lub Jupyter.
 
-Notebook wykonuje audyt danych i zapisuje trzy pliki z identyfikatorami do folderu `splits/`.
+Zadanie 1: Notebook notebooks/01_data_and_protocol.ipynb wykonuje audyt danych i przygotowuje podział na train, validation i final test. Identyfikatory podziału są zapisane w folderze splits/.
 
-Środowisko: Python 3.14.2. Wersje bibliotek użytych w Zadaniu 1 zapisano w `requirements.txt`. Do uruchomienia notebooka potrzebne jest środowisko Jupyter z kernelem Pythona.
+Zadanie 2: Notebook notebooks/02_baseline.ipynb korzysta z podziału przygotowanego w Zadaniu 1. Trenuje modele DummyClassifier oraz TF-IDF + Logistic Regression, oblicza metryki na validation i zapisuje wyniki w results/validation/.
 
 ## Ograniczenia
 
