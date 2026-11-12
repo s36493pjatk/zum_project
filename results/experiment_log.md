@@ -4,7 +4,7 @@
 
 * Data: 2026-11-12
 * Zadanie: 2
-* Poziom: A — trivial baseline
+* Poziom: A (trivial baseline)
 * Cel albo hipoteza: Punkt odniesienia ignorujący treść nazw produktów.
 * Reprezentacja i preprocessing: Brak.
 * Model i hiperparametry: `DummyClassifier(strategy="most_frequent")`.
